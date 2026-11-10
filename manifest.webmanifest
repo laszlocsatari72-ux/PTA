@@ -1,0 +1,18 @@
+{
+  "name": "P_T_A – logisztikai társasjáték",
+  "short_name": "P_T_A",
+  "description": "Logisztikai társasjáték oktató móddal: egy játékos a gép ellen, vagy 2–4 játékos egy eszközön.",
+  "lang": "hu",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone"],
+  "orientation": "landscape",
+  "background_color": "#16181d",
+  "theme_color": "#16181d",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

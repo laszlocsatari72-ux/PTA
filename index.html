@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#16181d">
+<meta name="description" content="P_T_A – logisztikai társasjáték, oktató móddal">
+<!-- telepíthető webalkalmazás (iPhone: Megosztás → Hozzáadás a főképernyőhöz) -->
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="P_T_A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icons/favicon.png">
+<title>P_T_A</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <div id="menu" class="screen"></div>
+  <div id="game" class="screen hidden">
+    <div id="left">
+      <div id="markets"></div>
+      <div id="boardWrap"><svg id="board" viewBox="0 0 1004 580" preserveAspectRatio="xMidYMid meet"
+        xmlns="http://www.w3.org/2000/svg"><g id="bStatic"></g><g id="bDyn"></g></svg></div>
+      <div id="coach" class="hidden"></div>
+    </div>
+    <div id="right">
+      <div id="topbar" class="card"></div>
+      <div id="turn" class="card"></div>
+      <div id="actions" class="card"></div>
+      <div id="whPanel" class="card hidden"></div>
+      <div id="coachSide" class="card hidden"></div>
+      <div id="players" class="card"></div>
+      <div id="logPanel" class="card"></div>
+    </div>
+  </div>
+  <div id="modal" class="hidden"></div>
+  <div id="toast" class="hidden"></div>
+</div>
+<script src="js/board_data.js"></script>
+<script src="js/board.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/coach.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // internet nélküli működés: a fájlok a telefonon maradnak (csak https címről, vagy a gépen localhostról működik)
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function (e) { console.log('Offline mód nem érhető el:', e); });
+    });
+  }
+</script>
+</body>
+</html>
